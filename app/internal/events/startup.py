@@ -29,7 +29,7 @@ async def on_loop_startup():
 
         async with aiohttp.ClientSession() as session:
 
-            async with session.get(os.getenv("CURRENCY_PAIR_KEY")) as response:
+            async with session.get(f'{os.getenv("CURRENCY_PAIR_KEY")}{symbol.decode("utf-8")}') as response:
 
                 response_json = await response.json()
 
